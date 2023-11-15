@@ -1,16 +1,21 @@
+// Import Link and useSearchParams from react-router-dom.
 import { Link, useSearchParams } from 'react-router-dom';
 
+// Define the Navbar functional component.
 const Navbar = () => {
-    const [searchParams] = useSearchParams();
-    let todos̥Data = searchParams.get("todos");
-    
-  return (
-   <nav>
-    <Link to="/" className={todos̥Data === null ? "active" : ""} > All </Link>
-    <Link to="/?todos=active" className={todos̥Data === "active" ? "active" : ""} > Active </Link>
-    <Link to="/?todos=completed" className={todos̥Data === "completed" ? "active" :""} > Completed </Link>
-   </nav>
-  )
-}
+  // Use useSearchParams to get search parameters from the URL.
+  const [searchParams] = useSearchParams();
+  let todosData = searchParams.get("todos");
 
-export default Navbar
+  // Return a navigation bar with links for different todo categories.
+  return (
+    <nav>
+      <Link to="/" className={todosData === null ? "active" : ""} > All </Link>
+      <Link to="/?todos=active" className={todosData === "active" ? "active" : ""} > Active </Link>
+      <Link to="/?todos=completed" className={todosData === "completed" ? "active" :""} > Completed </Link>
+    </nav>
+  );
+};
+
+// Export the Navbar component as the default export.
+export default Navbar;

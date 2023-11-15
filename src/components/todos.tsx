@@ -1,24 +1,30 @@
+// Import useTodos and useSearchParams from "todos" store and react-router-dom, respectively.
 import { useTodos } from '../store/todos';
 import { useSearchParams } from "react-router-dom";
 
+// Define the Todos functional component.
 const Todos = () => {
-    const {todos, toggleTodoAsCompleted, handleDeleteTodo} = useTodos();
+  // Use the useTodos hook to get todos and related functions.
+  const {todos, toggleTodoAsCompleted, handleDeleteTodo} = useTodos();
 
-    const [searchParams] = useSearchParams();
-    let todos̥Data = searchParams.get("todos");
-    console.log("🚀 ~ file: todos.tsx:10 ~ Todos ~ todos̥Data:", todos̥Data)
+  // Use useSearchParams to get search parameters from the URL.
+  const [searchParams] = useSearchParams();
+  let todosData = searchParams.get("todos");
+  console.log("🚀 ~ file: todos.tsx:10 ~ Todos ~ todos̥Data:", todosData)
 
+  // Initialize filterData with all todos.
+  let filterData = todos;
 
-    let filterData = todos;
+  // Filter todos based on the selected category (active, completed, etc.).
+  if(todosData === "active"){
+      filterData = filterData.filter((task) => !task.completed  )
+  }
 
-    if(todos̥Data === "active"){
-        filterData = filterData.filter((task) => !task.completed  )
-    }
+  if(todosData === "completed"){
+      filterData = filterData.filter((task) => task.completed  )
+  }
 
-    if(todos̥Data === "completed"){
-        filterData = filterData.filter((task) => task.completed  )
-    }
-
+  // Return a list of todos with checkboxes, labels, and delete buttons.
   return (
     <ul className="main-task">
         {
@@ -40,7 +46,8 @@ const Todos = () => {
             })
         }
     </ul>
-  )
-}
+  );
+};
 
-export default Todos
+// Export the Todos component as the default export.
+export default Todos;
