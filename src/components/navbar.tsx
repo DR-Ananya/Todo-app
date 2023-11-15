@@ -1,21 +1,45 @@
-// Import Link and useSearchParams from react-router-dom.
-import { Link, useSearchParams } from 'react-router-dom';
+// components/navbar.tsx
 
-// Define the Navbar functional component.
+import { Link, useSearchParams } from "react-router-dom";
+
 const Navbar = () => {
-  // Use useSearchParams to get search parameters from the URL.
-  const [searchParams] = useSearchParams();
-  let todosData = searchParams.get("todos");
+    const [searchParams] = useSearchParams();
+    let todosData = searchParams.get("todos");
 
-  // Return a navigation bar with links for different todo categories.
-  return (
-    <nav>
-      <Link to="/" className={todosData === null ? "active" : ""} > All </Link>
-      <Link to="/?todos=active" className={todosData === "active" ? "active" : ""} > Active </Link>
-      <Link to="/?todos=completed" className={todosData === "completed" ? "active" :""} > Completed </Link>
-    </nav>
-  );
+    return (
+        <nav>
+            <div className="nav-section">
+                <Link to="/" className={todosData === null ? "active" : ""}>
+                    All
+                </Link>
+            </div>
+            <div className="nav-section">
+                <Link
+                    to="/?todos=active"
+                    className={todosData === "active" ? "active" : ""}
+                >
+                    Active
+                </Link>
+            </div>
+            <div className="nav-section">
+                <Link
+                    to="/?todos=completed"
+                    className={todosData === "completed" ? "active" : ""}
+                >
+                    Completed
+                </Link>
+            </div>
+            {/* Placeholder for future sections */}
+            <div className="nav-section">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            {/* Placeholder for future sections */}
+            <div className="nav-section">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </nav>
+    );
 };
 
-// Export the Navbar component as the default export.
 export default Navbar;
+

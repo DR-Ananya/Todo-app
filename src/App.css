@@ -1,3 +1,5 @@
+/* app.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;700;900&family=Urbanist:wght@300;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&display=swap');
 
@@ -34,32 +36,40 @@ main {
   margin-top: 8rem;
 }
 
-main h2 {
+main h1 {
   font-size: 3.5rem;
   font-family: 'Poppins', sans-serif;
   margin-bottom: 3rem;
   color: #3A3845;
 }
 
-main h2 .icons {
-  color: #68B984;
-}
-
 /* Navbar styling */
 nav {
-  width: 60rem;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: .2rem solid #ddd;
+  border-bottom: 0.2rem solid #ddd;
   padding: 1.5rem 0;
+}
+
+.nav-section {
+  flex-grow: 1;
+  text-align: center;
+  margin: 0 2rem;
+}
+
+nav h2 {
+  font-size: 2rem;
+  font-family: 'Lexend Deca', sans-serif;
+  color: #777;
 }
 
 nav a {
   font-size: 2rem;
   font-family: 'Lexend Deca', sans-serif;
   color: #777;
-  border-bottom: .2rem solid transparent;
+  border-bottom: 0.2rem solid transparent;
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -73,14 +83,29 @@ nav a.active {
   border-color: #68B984;
 }
 
+
 /* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form label {
+  font-size: 1.6rem;
+  letter-spacing: .07rem;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
 form input {
-  border: .1rem solid #bbb;
-  border-radius: .4rem;
-  width: 45rem;
-  margin: 3rem 0;
+  border: 0.1rem solid #bbb;
+  border-radius: 0.4rem;
+  width: 25rem;
+  margin-bottom: 1.5rem;
   user-select: none;
-  padding: .8rem 1.2rem;
+  padding: 0.8rem 1.2rem;
   font-size: 1.8rem;
   letter-spacing: .07rem;
   font-weight: bold;
@@ -90,10 +115,10 @@ form input {
 form button {
   padding: 1rem 3rem;
   border: none;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   font-weight: bold;
   cursor: pointer;
-  margin-left: 2.4rem;
+  margin-top: 1.5rem;
   background-color: #68B984;
   color: #fff;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -104,13 +129,6 @@ form button:hover {
   color: #fff;
 }
 
-label {
-  font-size: 1.6rem;
-  letter-spacing: .07rem;
-  color: #555;
-  font-weight: bold;
-}
-
 /* Todo task list */
 .main-task li {
   display: grid;
@@ -118,12 +136,12 @@ label {
   align-items: center;
   width: 50rem;
   min-height: 6rem;
-  border-bottom: .1rem solid #ddd;
+  border-bottom: 0.1rem solid #ddd;
   transition: background-color 0.3s ease;
 }
 
 .main-task li:first-child {
-  border-top: .1rem solid #ddd;
+  border-top: 0.1rem solid #ddd;
 }
 
 .main-task li:hover {
@@ -135,8 +153,16 @@ label {
   color: #D14D72;
 }
 
+.main-task li label {
+  font-size: 2rem;
+  letter-spacing: .07rem;
+  color: #555;
+  font-weight: bold;
+  margin-left: 2rem;
+}
+
 .main-task li button {
-  padding: .7rem 1.5rem;
+  padding: 0.7rem 1.5rem;
   width: 7rem;
   background-color: #D14D72;
   color: #FFF9F9;
@@ -163,46 +189,4 @@ label {
 /* Heading Styling */
 h1 {
   font-size: 4rem;
-  color: #3A3845;
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 2rem;
-}
-
-/* Input Focus Styling */
-form input:focus {
-  outline: none;
-  border-color: #68B984;
-}
-
-/* Checkbox Styling */
-input[type="checkbox"] {
-  appearance: none;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 0.2rem solid #68B984;
-  border-radius: 0.4rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-input[type="checkbox"]:checked {
-  background-color: #68B984;
-}
-
-/* Button Styling */
-form button:disabled {
-  background-color: #ccc;
-  color: #666;
-  cursor: not-allowed;
-}
-
-/* Delete Button Styling */
-.main-task li button.delete {
-  background-color: #D14D72;
-  color: #FFF9F9;
-  margin-left: 1rem;
-}
-
-.main-task li button.delete:hover {
-  background-color: #aa3b57;
 }
